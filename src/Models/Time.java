@@ -1,3 +1,4 @@
+package Models;
 
 public class Time {
 
@@ -30,5 +31,9 @@ public class Time {
         totalTime = end - start;
 
         return totalTime;
+    }
+
+    public static long getTime(){
+        return System.currentTimeMillis();
     }
 }

@@ -1,3 +1,7 @@
+package Models;
+
+import Models.Customer;
+
 import java.util.LinkedList;
 import java.util.Queue;
 

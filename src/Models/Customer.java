@@ -1,3 +1,6 @@
+package Models;
+
+import java.util.Random;
 
 public class Customer {
     private int goods;
@@ -5,9 +8,12 @@ public class Customer {
     private long time;
 
 
-    public Customer(long time, int id) {
+    Customer(long time) {
         this.time = time;
-        this.id = id;
+
+        Random rand = new Random();
+        goods = rand.nextInt(45) + 5;
+
     }
 
     public int getGoods() {
@@ -18,8 +24,8 @@ public class Customer {
         this.goods = goods;
     }
 
-    public long getTime() {
-        return time;
+    public long getObjectTime() {
+        return Time.getTime() - time;
     }
 
     public void setTime(long time) {
