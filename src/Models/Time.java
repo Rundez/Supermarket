@@ -26,7 +26,7 @@ public class Time {
     }
 
 
-    public static long getTotalTime() {
+    public static long getElapsedTime() {
         end = System.currentTimeMillis();
         totalTime = end - start;
 
