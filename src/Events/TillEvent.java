@@ -1,6 +1,6 @@
 package Events;
 
-public class TillEvent {
+public class TillEvent extends Event {
 
 
 }

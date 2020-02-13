@@ -1,4 +1,4 @@
 package Events;
 
-public class LeaveEvent {
+public class LeaveEvent extends Event {
 }

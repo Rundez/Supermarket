@@ -7,10 +7,11 @@ public class Customer {
     private int id;
     private long time;
 
-
+    // Initializing the customer, using the time parameter to handle the timing throughout the events.
     Customer(long time) {
         this.time = time;
 
+        // The goods will define for how long the customer will stay in the shopping phase.
         Random rand = new Random();
         goods = rand.nextInt(45) + 5;
 

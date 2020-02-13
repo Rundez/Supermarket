@@ -1,4 +1,4 @@
 package Events;
 
-public class ShoppingEvent {
+public class ShoppingEvent extends Event {
 }
