@@ -18,7 +18,7 @@ public class EnterEvent extends Event {
 
     }
 
-    public void generateCustomers(){
+    public ArrayList generateCustomers(){
 
         // Temp variable for creating customers.
         int customers = 10;
@@ -29,6 +29,7 @@ public class EnterEvent extends Event {
             customerList.add(cust);
 
         }
+        return customerList;
     }
 
     public void printCustomerInfo(){
