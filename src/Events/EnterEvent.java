@@ -3,15 +3,23 @@ package Events;
 import Models.Customer;
 
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayList;
+
 
 public class EnterEvent extends Event {
-    private Queue<Customer> customers = new LinkedList<>();
+    private ArrayList<Customer> customerList = new ArrayList<>();
 
     // Starts the event, adding customers to the event and how often they will be added.
-    public EnterEvent(Customer cust, long frequency) {
-        customers.add(cust);
+    public EnterEvent() {
+
+    }
+
+    private void arrivalTime(Customer cust){
+        System.out.println(cust.getObjectTime());
+    }
+
+    private void addCustomer(Customer cust){
+        customerList.add(cust);
     }
 
 

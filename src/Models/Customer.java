@@ -6,7 +6,7 @@ public class Customer {
     private int goods;
     private int id;
     private long time;
-
+    private long totalTime;
     // Initializing the customer, using the time parameter to handle the timing throughout the events.
     Customer(long time) {
         this.time = time;
