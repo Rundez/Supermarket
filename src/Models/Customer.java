@@ -5,15 +5,19 @@ import java.util.Random;
 public class Customer {
     private int goods;
     private int id;
-    private long time;
+    private long startTime;
     private long totalTime;
-    // Initializing the customer, using the time parameter to handle the timing throughout the events.
-    Customer(long time) {
-        this.time = time;
+
+    // Initializing the customer
+    public Customer(int id) {
 
         // The goods will define for how long the customer will stay in the shopping phase.
         Random rand = new Random();
         goods = rand.nextInt(45) + 5;
+        this.id = id;
+
+        // As the customer is generated, the start time will be assigned.
+        startTime = Time.getTime();
 
     }
 
@@ -21,15 +25,15 @@ public class Customer {
         return goods;
     }
 
-    public void setGoods(int goods) {
-        this.goods = goods;
+    public long getTotalTime() {
+        return Time.getTime() - startTime;
     }
 
-    public long getObjectTime() {
-        return Time.getTime() - time;
+    public void setTotalTime() {
+        totalTime = Time.getTime() - startTime;
     }
 
-    public void setTime(long time) {
-        this.time = time;
+    public int getId(){
+        return id;
     }
 }

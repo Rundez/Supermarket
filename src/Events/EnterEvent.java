@@ -15,11 +15,27 @@ public class EnterEvent extends Event {
     }
 
     private void arrivalTime(Customer cust){
-        System.out.println(cust.getObjectTime());
+
     }
 
-    private void addCustomer(Customer cust){
-        customerList.add(cust);
+    public void generateCustomers(){
+
+        // Temp variable for creating customers.
+        int customers = 10;
+
+        for(int i = 0; i <= customers; i++){
+
+            Customer cust = new Customer(i);
+            customerList.add(cust);
+
+        }
+    }
+
+    public void printCustomerInfo(){
+        for (Customer cust: customerList) {
+
+            System.out.println("Customer id: " + cust.getId() + ", created at: " + cust.getTotalTime());
+        }
     }
 
 
