@@ -33,6 +33,10 @@ public class Customer {
         totalTime = Time.getTime() - startTime;
     }
 
+    public long getStartTime(){
+        return startTime;
+    }
+
     public int getId(){
         return id;
     }
