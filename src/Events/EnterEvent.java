@@ -13,10 +13,6 @@ public class EnterEvent extends Event {
 
     private ArrayList<Customer> statList = new ArrayList<>();
 
-    // Calls the super method to inherit the created customers from the super class.
-    public EnterEvent() {
-        super();
-    }
 
     public void customersEntering(ArrayList<Customer> customerList)  {
         for (Customer cust: customerList) {
@@ -25,10 +21,9 @@ public class EnterEvent extends Event {
             Time.setTime(cust.getStartTime());
         }
 
-        // Sort the list of costumers to be used in the next event. 
+        // Sort the list of costumers to be used in the next event.
         sortCustByTime(customerList);
     }
-
 
     public void printStatistics(){
         for(Customer cust : statList){
@@ -36,10 +31,13 @@ public class EnterEvent extends Event {
         }
     }
 
-    public void sortCustByTime(ArrayList<Customer> customerList){
+    private void sortCustByTime(ArrayList<Customer> customerList){
 
         Collections.sort(customerList);
         statList = customerList;
+    }
 
+    public ArrayList<Customer> getCustomers(){
+        return statList;
     }
 }

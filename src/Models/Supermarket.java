@@ -19,6 +19,8 @@ public class Supermarket {
         EnterEvent enter = new EnterEvent();
         initCustomers();
         enter.customersEntering(custList);
+        enter.getCustomers();
+
 
 
     }
