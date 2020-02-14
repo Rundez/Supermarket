@@ -2,7 +2,9 @@ package Events;
 
 import Models.Customer;
 import Models.Time;
-
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 import java.util.ArrayList;
 
@@ -22,16 +24,22 @@ public class EnterEvent extends Event {
             System.out.println("Customer id: " + cust.getId() + ", entered at time: " + cust.getStartTime());
             Time.setTime(cust.getStartTime());
         }
-        setStats(customerList);
+
+        // Sort the list of costumers to be used in the next event. 
+        sortCustByTime(customerList);
     }
 
-    private void setStats(ArrayList<Customer> customerList){
-        statList.addAll(customerList);
-    }
 
     public void printStatistics(){
-        for(int i = 0; i < statList.size(); i++){
-            System.out.println(statList.get(i));
+        for(Customer cust : statList){
+            System.out.println(cust.getStartTime());
         }
+    }
+
+    public void sortCustByTime(ArrayList<Customer> customerList){
+
+        Collections.sort(customerList);
+        statList = customerList;
+
     }
 }

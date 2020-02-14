@@ -2,7 +2,7 @@ package Models;
 
 import java.util.Random;
 
-public class Customer {
+public class Customer implements Comparable<Customer>  {
     private int goods;
     private int id;
     private int startTime;
@@ -29,11 +29,17 @@ public class Customer {
         return Time.getTime() - startTime;
     }
 
-    public int getStartTime(){
+    public Integer getStartTime(){
         return startTime;
     }
 
     public int getId(){
         return id;
+    }
+
+    @Override
+    public int compareTo(Customer c) {
+
+        return getStartTime().compareTo(c.getStartTime());
     }
 }
