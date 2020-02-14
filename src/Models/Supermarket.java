@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class Supermarket {
 
     private static ArrayList<Customer> custList = new ArrayList<>();
+    private static Queue<Customer> q = new LinkedList<>();
 
     public static void main(String[] args) {
 
@@ -20,6 +21,7 @@ public class Supermarket {
         initCustomers();
         enter.customersEntering(custList);
         enter.getCustomers();
+        fillQueue();
 
 
 
@@ -33,5 +35,9 @@ public class Supermarket {
             custList.add(cust);
             System.out.println("Customer: " + cust.getId() + " created");
         }
+    }
+
+    private static void fillQueue(){
+        q.addAll(custList);
     }
 }
