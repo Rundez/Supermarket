@@ -2,6 +2,7 @@ package Models;
 
 import Events.EnterEvent;
 import Events.Event;
+import Events.ShoppingEvent;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
@@ -18,9 +19,15 @@ public class Supermarket {
         Time.startTime();
 
         EnterEvent enter = new EnterEvent();
+        ShoppingEvent shopping = new ShoppingEvent();
 
+<<<<<<< HEAD
         enter.generateCustomers(500);
+=======
+      ArrayList<Customer> kunder = enter.generateCustomers();
+>>>>>>> Shopping
         enter.printCustomerInfo();
+        shopping.checkStatus(kunder);
 
 
     }

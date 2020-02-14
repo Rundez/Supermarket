@@ -19,9 +19,13 @@ public class EnterEvent extends Event {
 
     }
 
+<<<<<<< HEAD
     public void generateCustomers(long custFrequency) throws InterruptedException {
 
 
+=======
+    public ArrayList generateCustomers(){
+>>>>>>> Shopping
 
         // Temp variable for creating customers.
         int customers = 10;
@@ -35,6 +39,7 @@ public class EnterEvent extends Event {
             System.out.println("Customer created");
 
         }
+        return customerList;
     }
 
     public void printCustomerInfo()  {
