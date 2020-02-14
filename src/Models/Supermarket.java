@@ -12,23 +12,24 @@ import java.util.concurrent.TimeUnit;
 
 public class Supermarket {
 
-    Queue<Event> events = new LinkedList<>();
+    private static ArrayList<Customer> custList = new ArrayList<>();
 
-    public static void main(String[] args) throws InterruptedException {
-        // Starts the time for the simulation
-        Time.startTime();
+    public static void main(String[] args) {
 
         EnterEvent enter = new EnterEvent();
-        ShoppingEvent shopping = new ShoppingEvent();
-
-<<<<<<< HEAD
-        enter.generateCustomers(500);
-=======
-      ArrayList<Customer> kunder = enter.generateCustomers();
->>>>>>> Shopping
-        enter.printCustomerInfo();
-        shopping.checkStatus(kunder);
+        initCustomers();
+        enter.customersEntering(custList);
 
 
+    }
+
+    private static void initCustomers(){
+        int customers = 10;
+        for (int i = 0; i <= customers; i++) {
+
+            Customer cust = new Customer(i);
+            custList.add(cust);
+            System.out.println("Customer: " + cust.getId() + " created");
+        }
     }
 }

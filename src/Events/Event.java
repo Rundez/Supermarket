@@ -1,9 +1,18 @@
 package Events;
 
-public abstract class Event {
-    Event event;
+import Models.Customer;
 
-    public Event getEvent() {
-        return event;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
+
+public abstract class Event {
+
+
+
+    Event() {
     }
+
+
+
 }

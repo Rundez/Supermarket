@@ -5,8 +5,8 @@ import java.util.Random;
 public class Customer {
     private int goods;
     private int id;
-    private long startTime;
-    private long totalTime;
+    private int startTime;
+    private int totalTime;
 
     // Initializing the customer
     public Customer(int id) {
@@ -16,8 +16,8 @@ public class Customer {
         goods = rand.nextInt(45) + 5;
         this.id = id;
 
-        // As the customer is generated, the start time will be assigned.
-        startTime = Time.getTime();
+        // When the customer arrives at the store
+        this.startTime = rand.nextInt(650);
 
     }
 
@@ -25,15 +25,11 @@ public class Customer {
         return goods;
     }
 
-    public long getTotalTime() {
+    public int getTotalTime() {
         return Time.getTime() - startTime;
     }
 
-    public void setTotalTime() {
-        totalTime = Time.getTime() - startTime;
-    }
-
-    public long getStartTime(){
+    public int getStartTime(){
         return startTime;
     }
 

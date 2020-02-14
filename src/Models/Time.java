@@ -4,11 +4,8 @@ public class Time {
 
     private static Time timeInstance = null;
 
-    private static long start;
-    private static long end;
-    private static long totalTime;
-
-
+    private final static int maxTime = 720;
+    private static int currentTime = 0;
 
     private Time(){
 
@@ -21,21 +18,20 @@ public class Time {
         return timeInstance;
     }
 
-    public static void startTime(){
-        start = System.currentTimeMillis();
+    public static void incrementTime(){
+        currentTime++;
     }
 
-
-    public static long getElapsedTime() {
-        end = System.currentTimeMillis();
-        totalTime = end - start;
-
-        return totalTime;
+    public static long getElapsedTime(int custTime) {
+       int customerTime = currentTime - custTime;
+       return customerTime;
     }
 
-    public static long getTime(){
-        return System.currentTimeMillis();
+    public static int getTime(){
+        return currentTime;
     }
 
-
+    public static void setTime(int value){
+        currentTime = value;
+    }
 }
