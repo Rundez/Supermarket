@@ -13,15 +13,14 @@ public class Supermarket {
 
     Queue<Event> events = new LinkedList<>();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // Starts the time for the simulation
         Time.startTime();
 
         EnterEvent enter = new EnterEvent();
 
-        enter.generateCustomers();
+        enter.generateCustomers(500);
         enter.printCustomerInfo();
-
 
 
     }
