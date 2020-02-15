@@ -1,16 +1,22 @@
 package Events;
 
 import Models.Customer;
-import Models.Time;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
+/**
+ * This class is an simulation of the shopping phase
+ * @author Kristian/Martin
+ */
 public class ShoppingEvent extends Event {
 
-
+    /**
+    * ShoppingEvent is the event in which the customer will be putting there goods in there cart
+    * It take in the customerArraylist which we use.
+    *
+    * @param customerArrayList take an Arraylist of Customer objecttypes
+    *
+     */
     public ShoppingEvent(ArrayList<Customer> customerArrayList){
         ArrayList<Customer> statList;
         statList = customerShops(customerArrayList);
@@ -43,7 +49,6 @@ public class ShoppingEvent extends Event {
     // Returns the customers sorted by time.
     private ArrayList<Customer> sortCustByTime(ArrayList<Customer> customerList){
         Collections.sort(customerList);
-
 
         return customerList;
     }
