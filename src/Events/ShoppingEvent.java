@@ -8,6 +8,7 @@ import java.util.Random;
 
 public class ShoppingEvent extends Event {
     private ArrayList<Customer> statList = new ArrayList<>();
+
     public ShoppingEvent(){
 
 
