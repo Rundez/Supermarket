@@ -24,9 +24,6 @@ public class Supermarket {
         // Starts the shopping event by creating the object and passing in the customers sorted by time.
         ShoppingEvent shopping = new ShoppingEvent(enter.getCustomers());
 
-
-
-
     }
 
     private static void initCustomers(){

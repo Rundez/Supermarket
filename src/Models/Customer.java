@@ -20,7 +20,10 @@ public class Customer implements Comparable<Customer>  {
         this.id = id;
 
         // When the customer arrives at the store
-        this.startTime = rand.nextInt(650);
+        int time  = rand.nextInt(650);
+        startTime = time;
+        currentTime = time;
+
 
     }
 
@@ -52,13 +55,13 @@ public class Customer implements Comparable<Customer>  {
         this.shoppingTime = shoppingTime;
     }
 
-    public int getCurrentTime(){
+    public Integer getCurrentTime(){
         return currentTime;
     }
 
     @Override
     public int compareTo(Customer c) {
 
-        return getStartTime().compareTo(c.getStartTime());
+        return getCurrentTime().compareTo(c.getCurrentTime());
     }
 }
