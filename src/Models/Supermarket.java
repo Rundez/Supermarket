@@ -18,10 +18,10 @@ public class Supermarket {
     public static void main(String[] args) {
 
         EnterEvent enter = new EnterEvent();
+        ShoppingEvent shopping = new ShoppingEvent();
         initCustomers();
         enter.customersEntering(custList);
-        enter.getCustomers();
-        fillQueue();
+        shopping.customerShops(custList);
 
 
 
