@@ -7,6 +7,9 @@ public class Customer implements Comparable<Customer>  {
     private int id;
     private int startTime;
     private int totalTime;
+    private int currentTime;
+    private int shoppingTime;
+
 
     // Initializing the customer
     public Customer(int id) {
@@ -35,6 +38,22 @@ public class Customer implements Comparable<Customer>  {
 
     public int getId(){
         return id;
+    }
+
+    public void setTime(int time){
+        currentTime = time;
+    }
+
+    public int getShoppingTime(){
+        return shoppingTime;
+    }
+
+    public void setShoppingTime(int shoppingTime){
+        this.shoppingTime = shoppingTime;
+    }
+
+    public int getCurrentTime(){
+        return currentTime;
     }
 
     @Override

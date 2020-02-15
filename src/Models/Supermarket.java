@@ -18,10 +18,12 @@ public class Supermarket {
     public static void main(String[] args) {
 
         EnterEvent enter = new EnterEvent();
-        ShoppingEvent shopping = new ShoppingEvent();
         initCustomers();
         enter.customersEntering(custList);
-        shopping.customerShops(custList);
+
+        // Starts the shopping event by creating the object and passing in the customers sorted by time.
+        ShoppingEvent shopping = new ShoppingEvent(enter.getCustomers());
+
 
 
 

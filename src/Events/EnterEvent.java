@@ -14,12 +14,14 @@ public class EnterEvent extends Event {
     private ArrayList<Customer> statList = new ArrayList<>();
 
 
+    // Prints the arrival time for the customers which enters the shop
     public void customersEntering(ArrayList<Customer> customerList)  {
         for (Customer cust: customerList) {
 
             System.out.println("Customer id: " + cust.getId() + ", entered at time: " + cust.getStartTime());
             Time.setTime(cust.getStartTime());
         }
+        System.out.println("\n");
 
         // Sort the list of costumers to be used in the next event.
         sortCustByTime(customerList);
