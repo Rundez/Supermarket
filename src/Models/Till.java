@@ -8,19 +8,18 @@ import java.util.concurrent.TimeUnit;
 
 public class Till {
 
-    private int scanFrequency = 5;
-
+    private final int SCANSPEED = 1;
 
     public Till() {
 
     }
 
-    public void treatCustomer(Customer cust) throws InterruptedException {
+    public void treatCustomer(Customer cust)   {
         int custGoods = cust.getGoods();
 
-        while(custGoods >= 0) {
-            TimeUnit.MILLISECONDS.sleep(scanFrequency);
+        while(custGoods > 0) {
             custGoods--;
+            Time.incrementTime();
         }
 
     }

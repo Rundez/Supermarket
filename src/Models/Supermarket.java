@@ -1,19 +1,15 @@
 package Models;
 
 import Events.EnterEvent;
-import Events.Event;
 import Events.ShoppingEvent;
+import Events.TillEvent;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.concurrent.TimeUnit;
 
 public class Supermarket {
 
     private static ArrayList<Customer> custList = new ArrayList<>();
-    private static Queue<Customer> q = new LinkedList<>();
+
 
     public static void main(String[] args) {
 
@@ -23,7 +19,11 @@ public class Supermarket {
 
         // Starts the shopping event by creating the object and passing in the customers sorted by time.
         ShoppingEvent shopping = new ShoppingEvent(enter.getCustomers());
+        ArrayList<Customer> customers = shopping.getStatList();
 
+        TillEvent tillEvent = new TillEvent();
+
+        addToQueue(customers, tillEvent);
     }
 
     private static void initCustomers(){
@@ -36,7 +36,24 @@ public class Supermarket {
         }
     }
 
-    private static void fillQueue(){
-        q.addAll(custList);
+    public static boolean checkShoppingEventCustomers(){
+            if (custList.get(0).getCurrentTime() >= Time.getTime()) {
+                return true;
+        } else {
+                return false;
+            }
     }
+
+    public static void addToQueue(ArrayList<Customer> customers, TillEvent tillEvent){
+
+        int i = 0;
+        while(Time.getTime() < Time.getMaxTime() && i < customers.size()){
+            if(customers.get(i).getCurrentTime() >= Time.getTime()) {
+                tillEvent.addToQueue(customers.get(i));
+            }
+
+            i++;
+        }
+    }
+
 }

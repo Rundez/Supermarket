@@ -55,5 +55,9 @@ public class ShoppingEvent extends Event {
         Time.setTime(statList.get(0).getCurrentTime());
         System.out.println(Time.getTime());
     }
+
+    public ArrayList<Customer> getStatList() {
+        return statList;
+    }
 }
 
