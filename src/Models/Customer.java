@@ -9,7 +9,7 @@ public class Customer implements Comparable<Customer>  {
     private int totalTime;
     private int currentTime;
     private int shoppingTime;
-    private int timeInQueue;
+    public int timeInQueue;
 
 
 
@@ -22,7 +22,7 @@ public class Customer implements Comparable<Customer>  {
         this.id = id;
 
         // When the customer arrives at the store
-        int time  = rand.nextInt(650);
+        int time  = rand.nextInt(719);
         startTime = time;
         currentTime = time;
 
