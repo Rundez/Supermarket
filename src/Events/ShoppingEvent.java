@@ -1,42 +1,34 @@
 package Events;
 
 import Models.Customer;
+import Models.Time;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
-/**
- * This class is an simulation of the shopping phase
- * @author Kristian/Martin
- */
 public class ShoppingEvent extends Event {
+    private ArrayList<Customer> statList ;
 
-    /**
-    * ShoppingEvent is the event in which the customer will be putting there goods in there cart
-    * It take in the customerArraylist which we use.
-    *
-    * @param customerArrayList take an Arraylist of Customer objecttypes
-    *
-     */
-    public ShoppingEvent(ArrayList<Customer> customerArrayList){
-        ArrayList<Customer> statList;
-        statList = customerShops(customerArrayList);
-        statList = sortCustByTime(statList);
+    public ShoppingEvent(ArrayList<Customer> statList){
+        this.statList = statList;
+
+        customerShops();
+        sortCustByTime();
         printStats(statList);
-
-        
+        setCurrentSystemTime();
 
     }
 
-    private ArrayList<Customer> customerShops(ArrayList<Customer> kunder){
-        for(Customer kunde: kunder){
+    private void customerShops(){
+        for(Customer kunde: statList){
             int kundesHandleTid =  timeOnShopping(kunde.getGoods());
             // The customers total time spent shopping.
             kunde.setShoppingTime(kundesHandleTid);
             // Adds the shopping time to the current time of the customer.
             kunde.setTime(kundesHandleTid + kunde.getStartTime());
         }
-
-        return kunder;
     }
 
     // Static modifier to add shoppingTime to the customer.
@@ -47,19 +39,25 @@ public class ShoppingEvent extends Event {
     }
 
     // Returns the customers sorted by time.
-    private ArrayList<Customer> sortCustByTime(ArrayList<Customer> customerList){
-        Collections.sort(customerList);
+    private void sortCustByTime(){
+        Collections.sort(statList);
 
-        return customerList;
     }
 
     private void printStats(ArrayList<Customer> custList){
-
         for(Customer kunde : custList) {
             System.out.println(kunde.getGoods() + " varer i kunde " + kunde.getId() + " sin handlevogn. Total tid på shopping: " + kunde.getShoppingTime() + " og kundens total tid er: " + kunde.getCurrentTime());
         }
     }
 
+    // Sets the simulation time equals to the lowest time value of the customers.
+    private void setCurrentSystemTime(){
+        Time.setTime(statList.get(0).getCurrentTime());
+        System.out.println(Time.getTime());
+    }
 
+    public ArrayList<Customer> getStatList() {
+        return statList;
+    }
 }
 

@@ -34,4 +34,8 @@ public class Time {
     public static void setTime(int value){
         currentTime = value;
     }
+
+    public static int getMaxTime(){
+        return maxTime;
+    }
 }

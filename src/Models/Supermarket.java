@@ -1,35 +1,35 @@
 package Models;
 
 import Events.EnterEvent;
-import Events.Event;
 import Events.ShoppingEvent;
-import Jframe.Frame;
+import Events.TillEvent;
 
-import javax.swing.*;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.concurrent.TimeUnit;
 
-public class Supermarket extends JFrame {
+public class Supermarket {
 
     private static ArrayList<Customer> custList = new ArrayList<>();
-    private static Queue<Customer> q = new LinkedList<>();
+
 
     public static void main(String[] args) {
-        Frame frame = new Frame();
+
         EnterEvent enter = new EnterEvent();
         initCustomers();
         enter.customersEntering(custList);
 
         // Starts the shopping event by creating the object and passing in the customers sorted by time.
         ShoppingEvent shopping = new ShoppingEvent(enter.getCustomers());
+        ArrayList<Customer> customers = shopping.getStatList();
 
+        TillEvent tillEvent = new TillEvent();
 
+        tillEvent.addToQueue(customers);
+    }
 
+    public void createOneCustomer(){
 
     }
+
 
     private static void initCustomers(){
         int customers = 10;
@@ -41,8 +41,14 @@ public class Supermarket extends JFrame {
         }
     }
 
-    private static void fillQueue(){
-        q.addAll(custList);
+    public static boolean checkShoppingEventCustomers(){
+            if (custList.get(0).getCurrentTime() >= Time.getTime()) {
+                return true;
+        } else {
+                return false;
+            }
     }
+
+
 
 }
