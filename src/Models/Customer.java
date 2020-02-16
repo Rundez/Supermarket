@@ -9,6 +9,8 @@ public class Customer implements Comparable<Customer>  {
     private int totalTime;
     private int currentTime;
     private int shoppingTime;
+    public int timeInQueue;
+
 
 
     // Initializing the customer
@@ -20,7 +22,10 @@ public class Customer implements Comparable<Customer>  {
         this.id = id;
 
         // When the customer arrives at the store
-        this.startTime = rand.nextInt(650);
+        int time  = rand.nextInt(719);
+        startTime = time;
+        currentTime = time;
+
 
     }
 
@@ -52,13 +57,29 @@ public class Customer implements Comparable<Customer>  {
         this.shoppingTime = shoppingTime;
     }
 
-    public int getCurrentTime(){
+    public Integer getCurrentTime(){
         return currentTime;
+    }
+
+    public void incrementCurrentTime(){
+        currentTime++;
+    }
+
+    public int getTimeInQueue(){
+        return timeInQueue;
+    }
+
+    public void incrementTimeInQueue(){
+        timeInQueue++;
+    }
+
+    public void setTimeInQueue(int timeInQueue){
+        this.timeInQueue = timeInQueue;
     }
 
     @Override
     public int compareTo(Customer c) {
 
-        return getStartTime().compareTo(c.getStartTime());
+        return getCurrentTime().compareTo(c.getCurrentTime());
     }
 }
