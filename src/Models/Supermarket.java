@@ -23,8 +23,13 @@ public class Supermarket {
 
         TillEvent tillEvent = new TillEvent();
 
-        addToQueue(customers, tillEvent);
+        tillEvent.addToQueue(customers);
     }
+
+    public void createOneCustomer(){
+
+    }
+
 
     private static void initCustomers(){
         int customers = 10;
@@ -44,16 +49,6 @@ public class Supermarket {
             }
     }
 
-    public static void addToQueue(ArrayList<Customer> customers, TillEvent tillEvent){
 
-        int i = 0;
-        while(Time.getTime() < Time.getMaxTime() && i < customers.size()){
-            if(customers.get(i).getCurrentTime() >= Time.getTime()) {
-                tillEvent.addToQueue(customers.get(i));
-            }
-
-            i++;
-        }
-    }
 
 }
