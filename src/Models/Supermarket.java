@@ -3,20 +3,22 @@ package Models;
 import Events.EnterEvent;
 import Events.Event;
 import Events.ShoppingEvent;
+import Jframe.Frame;
 
+import javax.swing.*;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.TimeUnit;
 
-public class Supermarket {
+public class Supermarket extends JFrame {
 
     private static ArrayList<Customer> custList = new ArrayList<>();
     private static Queue<Customer> q = new LinkedList<>();
 
     public static void main(String[] args) {
-
+        Frame frame = new Frame();
         EnterEvent enter = new EnterEvent();
         initCustomers();
         enter.customersEntering(custList);
@@ -42,4 +44,5 @@ public class Supermarket {
     private static void fillQueue(){
         q.addAll(custList);
     }
+
 }
