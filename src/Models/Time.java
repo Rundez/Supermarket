@@ -4,7 +4,7 @@ public class Time {
 
     private static Time timeInstance = null;
 
-    private final static int maxTime = 720;
+    private final static int maxTime = 50000;
     private static int currentTime = 0;
 
     private Time(){
@@ -19,7 +19,7 @@ public class Time {
     }
 
     public static void incrementTime(){
-        currentTime++;
+        currentTime = currentTime+ 1;
     }
 
     public static long getElapsedTime(int custTime) {

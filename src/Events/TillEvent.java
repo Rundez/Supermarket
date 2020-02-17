@@ -15,39 +15,50 @@ public class TillEvent extends Event {
 
     public TillEvent() {
         q = new LinkedList<>();
+
     }
 
 
-    public void treatCustomer() {
+    public void treatCustomer(ArrayList<Customer> custList) {
         int goodsScanned = 0;
+        Time.setTime(custList.get(0).getCurrentTime());
 
-        while (goodsScanned <= q.peek().getGoods()) {
-            if (goodsScanned < q.peek().getGoods()) {
-                goodsScanned++;
+        while (custList.size() > 0 || q.size() > 0)  {
+            if(custList.size() > 0) {
                 Time.incrementTime();
-                q.peek().incrementTimeInQueue();
-                q.peek().incrementCurrentTime();
-            } else {
-                System.out.println(q.peek().getId() + " is done in the Queue. Total queue time: " + q.peek().getTimeInQueue());
-                q.remove();
+                if (custList.get(0).getCurrentTime() <= Time.getTime()) {
+                    addCustToQueue(custList.get(0));
+                    custList.remove(0);
+                }
             }
+
+            if (q.size() > 0) {
+                if (goodsScanned < q.peek().getGoods()) {
+                    goodsScanned++;
+                } else if (goodsScanned == q.peek().getGoods()){
+                    System.out.println(q.peek().getId() + " is done in the till queue. Total queue time: " + q.peek().getTimeInQueue());
+                    q.remove();
+                    goodsScanned = 0;
+
+                }
+            }
+
+            for (Customer cust : q) {
+                cust.incrementTimeInQueue();
+                cust.incrementCurrentTime();
+            }
+
         }
 
     }
 
 
     // Ads a customer to the till queue when they are done shopping.
-    public void addToQueue(ArrayList<Customer> customers) {
+    private void addCustToQueue(Customer customer) {
 
-        int i = 0;
-        while (Time.getTime() < Time.getMaxTime() && i < customers.size()) {
-            if (customers.get(i).getCurrentTime() >= Time.getTime()) {
-                q.add(customers.get(i));
-            }
-
-            i++;
+        if (customer.getCurrentTime() <= Time.getTime()) {
+            q.add(customer);
         }
-
-        treatCustomer();
     }
 }
+

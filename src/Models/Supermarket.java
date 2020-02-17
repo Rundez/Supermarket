@@ -23,12 +23,11 @@ public class Supermarket {
 
         TillEvent tillEvent = new TillEvent();
 
-        tillEvent.addToQueue(customers);
-    }
 
-    public void createOneCustomer(){
+        tillEvent.treatCustomer(customers);
 
     }
+
 
 
     private static void initCustomers(){

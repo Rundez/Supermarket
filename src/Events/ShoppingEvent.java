@@ -53,7 +53,6 @@ public class ShoppingEvent extends Event {
     // Sets the simulation time equals to the lowest time value of the customers.
     private void setCurrentSystemTime(){
         Time.setTime(statList.get(0).getCurrentTime());
-        System.out.println(Time.getTime());
     }
 
     public ArrayList<Customer> getStatList() {
