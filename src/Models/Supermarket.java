@@ -26,12 +26,15 @@ public class Supermarket {
 
         tillEvent.treatCustomer(customers);
 
+        tillEvent.setAvgQueueTime();
+        System.out.println("\n Average queue time: " + tillEvent.getAvgQueueTime());
+        System.out.println("\n Maximum queue size: " + tillEvent.getMaxCustInQueue());
+
     }
 
 
-
     private static void initCustomers(){
-        int customers = 100;
+        int customers = 10;
         for (int i = 0; i <= customers; i++) {
 
             Customer cust = new Customer(i);
