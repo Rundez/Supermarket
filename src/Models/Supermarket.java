@@ -31,7 +31,7 @@ public class Supermarket {
 
 
     private static void initCustomers(){
-        int customers = 10;
+        int customers = 100;
         for (int i = 0; i <= customers; i++) {
 
             Customer cust = new Customer(i);
