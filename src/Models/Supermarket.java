@@ -3,6 +3,8 @@ package Models;
 import Events.EnterEvent;
 import Events.ShoppingEvent;
 import Events.TillEvent;
+import Jframe.JFX;
+import javafx.application.Application;
 
 import java.util.ArrayList;
 
@@ -29,7 +31,7 @@ public class Supermarket {
         tillEvent.setAvgQueueTime();
         System.out.println("\n Average queue time: " + tillEvent.getAvgQueueTime());
         System.out.println("\n Maximum queue size: " + tillEvent.getMaxCustInQueue());
-
+        Application.launch(JFX.class, args);
     }
 
 
