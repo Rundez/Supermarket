@@ -26,8 +26,11 @@ public class Supermarket {
 
         tillEvent.treatCustomer(customers);
 
-    }
+        tillEvent.setAvgQueueTime();
+        System.out.println("\n Average queue time: " + tillEvent.getAvgQueueTime());
+        System.out.println("\n Maximum queue size: " + tillEvent.getMaxCustInQueue());
 
+    }
 
 
     private static void initCustomers(){

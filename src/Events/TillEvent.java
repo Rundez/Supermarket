@@ -10,11 +10,13 @@ import Models.Time;
 
 public class TillEvent extends Event {
     private Queue<Customer> q;
-    private int maxQueue;
-    private int currentQueue;
+    private ArrayList<Customer> finishedCustomers;
+    private int maxCustInQueue;
+    private int avgQueueTime;
 
     public TillEvent() {
         q = new LinkedList<>();
+        finishedCustomers = new ArrayList<>();
 
     }
 
@@ -23,8 +25,9 @@ public class TillEvent extends Event {
         int goodsScanned = 0;
         Time.setTime(custList.get(0).getCurrentTime());
 
-        while (custList.size() > 0 || q.size() > 0)  {
-            if(custList.size() > 0) {
+
+        while (custList.size() > 0 || q.size() > 0) {
+            if (custList.size() > 0) {
                 Time.incrementTime();
                 if (custList.get(0).getCurrentTime() <= Time.getTime()) {
                     addCustToQueue(custList.get(0));
@@ -35,11 +38,12 @@ public class TillEvent extends Event {
             if (q.size() > 0) {
                 if (goodsScanned < q.peek().getGoods()) {
                     goodsScanned++;
-                } else if (goodsScanned == q.peek().getGoods()){
+                } else if (goodsScanned == q.peek().getGoods()) {
                     System.out.println(q.peek().getId() + " is done in the till queue. Total queue time: " + q.peek().getTimeInQueue());
-                    q.remove();
+                    Customer finished = q.remove();
+                    // Adds the finished customer to the list
+                    finishedCustomers.add(finished);
                     goodsScanned = 0;
-
                 }
             }
 
@@ -48,8 +52,9 @@ public class TillEvent extends Event {
                 cust.incrementCurrentTime();
             }
 
+            // checking and setting the queue size for each iteration
+            setMaxCustInQueue();
         }
-
     }
 
 
@@ -59,6 +64,31 @@ public class TillEvent extends Event {
         if (customer.getCurrentTime() <= Time.getTime()) {
             q.add(customer);
         }
+    }
+
+
+    private void setMaxCustInQueue(){
+
+        if(q.size() > maxCustInQueue){
+            maxCustInQueue = q.size();
+        }
+    }
+
+    public int getMaxCustInQueue(){
+        return maxCustInQueue;
+    }
+
+    public void setAvgQueueTime(){
+        int totalTime = 0;
+
+        for(Customer cust : finishedCustomers){
+            totalTime += cust.getTimeInQueue();
+        }
+        avgQueueTime = totalTime/finishedCustomers.size();
+    }
+
+    public int getAvgQueueTime(){
+        return avgQueueTime;
     }
 }
 
