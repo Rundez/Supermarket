@@ -46,7 +46,7 @@ public class ShoppingEvent extends Event {
 
     private void printStats(ArrayList<Customer> custList){
         for(Customer kunde : custList) {
-            System.out.println(kunde.getGoods() + " varer i kunde " + kunde.getId() + " sin handlevogn. Total tid på shopping: " + kunde.getShoppingTime() + " og kundens total tid er: " + kunde.getCurrentTime());
+            System.out.println("Customer id: " + kunde.getId() + " picked " + kunde.getGoods() + " groceries " + "and spent "+ kunde.getShoppingTime() + " minutes on shopping. Current time: " + kunde.getCurrentTime());
         }
     }
 

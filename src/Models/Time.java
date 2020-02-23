@@ -38,4 +38,8 @@ public class Time {
     public static int getMaxTime(){
         return maxTime;
     }
+
+    public static void incrementTimeBy(int howMuch){
+        currentTime = currentTime + howMuch;
+    }
 }
