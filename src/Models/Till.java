@@ -9,10 +9,10 @@ import java.util.concurrent.TimeUnit;
 public class Till {
 
     private final int SCANSPEED = 1;
-    private int numberOfTills;
+    public Queue<Customer> q;
 
     public Till() {
-
+        q = new LinkedList<Customer>();
     }
 
     public void treatCustomer(Customer cust)   {

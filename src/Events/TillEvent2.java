@@ -6,6 +6,7 @@ import java.util.Queue;
 
 import Models.Customer;
 import Models.Supermarket;
+import Models.Till;
 import Models.Time;
 
 public class TillEvent2 extends Event {
@@ -13,10 +14,18 @@ public class TillEvent2 extends Event {
     private ArrayList<Customer> finishedCustomers;
     private int maxCustInQueue;
     private int avgQueueTime;
+    private ArrayList<Till> tillList;
 
-    public TillEvent2() {
+    public TillEvent2(int numberOfTills) {
         q = new LinkedList<>();
         finishedCustomers = new ArrayList<>();
+        tillList = new ArrayList<>();
+
+
+        // Initialize all the tills
+        for(int i = 0; i <= numberOfTills; i++){
+            tillList.add(new Till());
+        }
 
     }
 
@@ -56,6 +65,17 @@ public class TillEvent2 extends Event {
         }
     }
 
+    public Till directToQueue(){
+        Till lowestQueue = new Till();
+
+        for(int i = 0; i < tillList.size(); i++){
+            if(tillList.get(i).q.size() <= lowestQueue.q.size()){
+                lowestQueue = tillList.get(i);
+            }
+        }
+        return lowestQueue;
+    }
+
     // Ads a customer to the till queue when they are done shopping.
     private void addCustToQueue(Customer customer) {
 
@@ -87,5 +107,7 @@ public class TillEvent2 extends Event {
     public int getAvgQueueTime() {
         return avgQueueTime;
     }
+
+
 }
 
