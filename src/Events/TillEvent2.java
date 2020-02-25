@@ -65,7 +65,9 @@ public class TillEvent2 extends Event {
         }
     }
 
-    public Till directToQueue(){
+
+    // Returns the queue which have the lowest number of customers waiting.
+    public Till returnShortestQueue(){
         Till lowestQueue = new Till();
 
         for(int i = 0; i < tillList.size(); i++){
