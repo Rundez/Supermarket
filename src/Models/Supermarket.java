@@ -3,6 +3,7 @@ package Models;
 import Events.EnterEvent;
 import Events.ShoppingEvent;
 import Events.TillEvent;
+import Events.TillEvent2;
 
 import java.util.ArrayList;
 
@@ -28,18 +29,20 @@ public class Supermarket {
         ArrayList<Customer> customers = shopping.getStatList();
 
         // TODO: TillEvent må returnere liste med kunder i rekkefølge etter eventet
-        TillEvent tillEvent = new TillEvent();
+        TillEvent2 tillEvent = new TillEvent2(1);
         tillEvent.treatCustomer(customers);
 
         tillEvent.setAvgQueueTime();
         System.out.println("\nAverage queue time: " + tillEvent.getAvgQueueTime());
-        System.out.println("\nMaximum queue size: " + tillEvent.getMaxCustInQueue());
+        tillEvent.printMaxCustInQueue();
+
+
 
     }
 
 
     private static void initCustomers() {
-        int customers = 20;
+        int customers = 10;
         for (int i = 0; i <= customers; i++) {
 
             Customer cust = new Customer(i);

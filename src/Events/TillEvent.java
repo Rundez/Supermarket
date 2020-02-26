@@ -30,8 +30,13 @@ public class TillEvent extends Event {
             if (custList.size() > 0) {
                 Time.incrementTime();
                 if (custList.get(0).getCurrentTime() <= Time.getTime()) {
-                    addCustToQueue(custList.get(0));
-                    custList.remove(0);
+                    if(custList.get(0).getGoods() < 1){
+                        System.out.println("Customer " + custList.get(0).getId() + " has left the building with zero groceries");
+                        custList.remove(0);
+                    } else {
+                        addCustToQueue(custList.get(0));
+                        custList.remove(0);
+                    }
                 }
             }
 
