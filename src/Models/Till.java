@@ -15,6 +15,8 @@ public class Till {
     private int id;
     private int goodScanned;
 
+
+    
     public int getGoodScanned() {
         return goodScanned;
     }
@@ -55,7 +57,7 @@ public class Till {
     }
 
     public void incrementMaxCustInQueue() {
-        this.maxCustInQueue = maxCustInQueue +1;
+        maxCustInQueue = maxCustInQueue + 1;
     }
 
     public int getAverageCustInQueue() {
@@ -67,7 +69,7 @@ public class Till {
     }
 
     public Till(int id) {
-        q = new LinkedList<Customer>();
+        q = new LinkedList<>();
         this.id = id;
     }
 

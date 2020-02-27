@@ -27,7 +27,7 @@ public class TillEvent2 extends Event {
         }
     }
 
-    // Main method of treating customers in the till event. 
+    // Main method of treating customers in the till event.
     public void treatCustomer(ArrayList<Customer> custList) {
         //int goodsScanned = 0;
         Time.setTime(custList.get(0).getCurrentTime());
@@ -35,6 +35,7 @@ public class TillEvent2 extends Event {
         // Adds a customer to the till queue and deletes the customer from the ArrayList
         while (custList.size() > 0 || isQueueFilled()) {
             setMaxCustInQueue();
+
             if (custList.size() > 0) {
                 Time.incrementTime();
                 if (custList.get(0).getCurrentTime() <= Time.getTime()) {
@@ -46,6 +47,8 @@ public class TillEvent2 extends Event {
             // Iterates through the queues, scans the goods and removes the customer from the queue if all the goods is scanned
             for (Till till : tillList) {
                 incrementCustomerTime();
+                till.getMaxCustInQueue();
+
 
                 if (till.q.size() > 0) {
                     if (till.getGoodScanned() < till.q.peek().getGoods()) {

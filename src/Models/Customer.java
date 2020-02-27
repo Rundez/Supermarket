@@ -22,7 +22,7 @@ public class Customer implements Comparable<Customer>  {
         this.id = id;
 
         // When the customer arrives at the store
-        int time  = rand.nextInt(720);
+        int time  = rand.nextInt(3);
         startTime = time;
         currentTime = time;
 
@@ -76,6 +76,8 @@ public class Customer implements Comparable<Customer>  {
     public void setTimeInQueue(int timeInQueue){
         this.timeInQueue = timeInQueue;
     }
+
+
 
     @Override
     public int compareTo(Customer c) {
