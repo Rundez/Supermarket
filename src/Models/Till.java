@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 public class Till {
 
     private final int SCANSPEED = 1;
+    private int numberOfTills;
 
     public Till() {
 
@@ -21,6 +22,5 @@ public class Till {
             custGoods--;
             Time.incrementTime();
         }
-
     }
 }

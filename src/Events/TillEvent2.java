@@ -8,18 +8,17 @@ import Models.Customer;
 import Models.Supermarket;
 import Models.Time;
 
-public class TillEvent extends Event {
+public class TillEvent2 extends Event {
     private Queue<Customer> q;
     private ArrayList<Customer> finishedCustomers;
     private int maxCustInQueue;
     private int avgQueueTime;
 
-    public TillEvent() {
+    public TillEvent2() {
         q = new LinkedList<>();
         finishedCustomers = new ArrayList<>();
 
     }
-
 
     public void treatCustomer(ArrayList<Customer> custList) {
         int goodsScanned = 0;
@@ -57,7 +56,6 @@ public class TillEvent extends Event {
         }
     }
 
-
     // Ads a customer to the till queue when they are done shopping.
     private void addCustToQueue(Customer customer) {
 
@@ -66,28 +64,27 @@ public class TillEvent extends Event {
         }
     }
 
+    private void setMaxCustInQueue() {
 
-    private void setMaxCustInQueue(){
-
-        if(q.size() > maxCustInQueue){
+        if (q.size() > maxCustInQueue) {
             maxCustInQueue = q.size();
         }
     }
 
-    public int getMaxCustInQueue(){
+    public int getMaxCustInQueue() {
         return maxCustInQueue;
     }
 
-    public void setAvgQueueTime(){
+    public void setAvgQueueTime() {
         int totalTime = 0;
 
-        for(Customer cust : finishedCustomers){
+        for (Customer cust : finishedCustomers) {
             totalTime += cust.getTimeInQueue();
         }
-        avgQueueTime = totalTime/finishedCustomers.size();
+        avgQueueTime = totalTime / finishedCustomers.size();
     }
 
-    public int getAvgQueueTime(){
+    public int getAvgQueueTime() {
         return avgQueueTime;
     }
 }
