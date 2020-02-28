@@ -18,7 +18,7 @@ public class Customer implements Comparable<Customer>  {
 
         // The goods will define for how long the customer will stay in the shopping phase.
         Random rand = new Random();
-        goods = rand.nextInt(45);
+        goods = 10;
         this.id = id;
 
         // When the customer arrives at the store

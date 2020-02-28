@@ -16,6 +16,9 @@ public class Till {
     private int goodScanned;
 
 
+    public int getQueueSize(){
+        return q.size();
+    }
     
     public int getGoodScanned() {
         return goodScanned;

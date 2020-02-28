@@ -29,21 +29,17 @@ public class Supermarket {
         ArrayList<Customer> customers = shopping.getStatList();
 
         // TODO: TillEvent må returnere liste med kunder i rekkefølge etter eventet
-        TillEvent2 tillEvent = new TillEvent2(1);
+        TillEvent2 tillEvent = new TillEvent2(19);
         tillEvent.treatCustomer(customers);
 
-        tillEvent.setAvgQueueTime();
         System.out.println("\nAverage queue time: " + tillEvent.getAvgQueueTime());
         tillEvent.printMaxCustInQueue();
-
-
-
     }
 
 
     private static void initCustomers() {
         int customers = 10;
-        for (int i = 0; i <= customers; i++) {
+        for (int i = 0; i <= customers -1 ; i++) {
 
             Customer cust = new Customer(i);
             custList.add(cust);
@@ -58,6 +54,4 @@ public class Supermarket {
             return false;
         }
     }
-
-
 }

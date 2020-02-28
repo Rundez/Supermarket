@@ -11,8 +11,8 @@ import Models.Time;
 public class TillEvent extends Event {
     private Queue<Customer> q;
     private ArrayList<Customer> finishedCustomers;
-    private int maxCustInQueue;
-    private int avgQueueTime;
+    public static int maxCustInQueue;
+    public static int avgQueueTime;
 
     public TillEvent() {
         q = new LinkedList<>();
