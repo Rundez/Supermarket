@@ -1,19 +1,34 @@
 package Jframe;
 
+import Events.TillEvent;
+import Events.TillEvent2;
+import Models.Supermarket;
+import Models.Till;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
 
-public class JFX extends Application {
+public class JFX extends Application  {
     private int height = 800;
     private int lenght = 800;
+
     @Override
     public void start(Stage stage) throws Exception {
+        init(stage);
+
+    }
+
+    private void init(Stage stage){
+
+        String maxCusts = Integer.toString(TillEvent.maxCustInQueue);
+        String averageCust =Integer.toString(TillEvent.avgQueueTime);
+
         Rectangle kasse = new Rectangle();
         kasse.setX(250);
         kasse.setY(50);
@@ -56,12 +71,21 @@ public class JFX extends Application {
         hylle4.setHeight(200);
         hylle4.setFill(Color.GRAY);
 
+        Text max = new Text();
+        max.setText("Maximum customer in the queue was = " + maxCusts);
+        max.setX(20);
+        max.setY(120);
+
+        Text avg = new Text();
+        avg.setText("Average customer = " + averageCust);
+        avg.setX(20);
+        avg.setY(140);
+
         Group root = new Group();
-        root.getChildren().addAll(kasse,kasApp,hylle1,hylle2,hylle3,hylle4);
+        root.getChildren().addAll(kasse,kasApp,hylle1,hylle2,hylle3,hylle4,max,avg);
         Scene scene = new Scene(root,height,lenght);
         stage.setTitle("Supermarket");
         stage.setScene(scene);
         stage.show();
-
     }
 }

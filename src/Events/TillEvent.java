@@ -11,15 +11,15 @@ import Models.Time;
 public class TillEvent extends Event {
     private Queue<Customer> q;
     private ArrayList<Customer> finishedCustomers;
-    private int maxCustInQueue;
-    private int avgQueueTime;
+    public static int maxCustInQueue;
+    public  static int avgQueueTime;
+    private static TillEvent intance = new TillEvent();
 
     public TillEvent() {
         q = new LinkedList<>();
         finishedCustomers = new ArrayList<>();
 
     }
-
 
     public void treatCustomer(ArrayList<Customer> custList) {
         int goodsScanned = 0;

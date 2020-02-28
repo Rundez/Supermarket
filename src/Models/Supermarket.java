@@ -3,13 +3,16 @@ package Models;
 import Events.EnterEvent;
 import Events.ShoppingEvent;
 import Events.TillEvent;
+import Jframe.JFX;
+import javafx.application.Application;
 
 import java.util.ArrayList;
 
 public class Supermarket {
 
     private static ArrayList<Customer> custList = new ArrayList<>();
-
+    private static int maxCust;
+    private static int avgCust;
 
     public static void main(String[] args) {
 
@@ -27,8 +30,15 @@ public class Supermarket {
         tillEvent.treatCustomer(customers);
 
         tillEvent.setAvgQueueTime();
+        maxCust = tillEvent.getMaxCustInQueue();
+        avgCust = tillEvent.getAvgQueueTime();
+
         System.out.println("\nAverage queue time: " + tillEvent.getAvgQueueTime());
         System.out.println("\nMaximum queue size: " + tillEvent.getMaxCustInQueue());
+        JFX jfx = new JFX();
+
+        Application.launch(JFX.class, args);
+
 
     }
 
