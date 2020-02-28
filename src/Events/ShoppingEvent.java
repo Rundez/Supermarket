@@ -18,7 +18,6 @@ public class ShoppingEvent extends Event {
         sortCustByTime();
         printStats(statList);
         setCurrentSystemTime();
-
     }
 
     private void customerShops(){

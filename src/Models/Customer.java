@@ -18,11 +18,11 @@ public class Customer implements Comparable<Customer>  {
 
         // The goods will define for how long the customer will stay in the shopping phase.
         Random rand = new Random();
-        goods = rand.nextInt(45) + 5;
+        goods = 10;
         this.id = id;
 
         // When the customer arrives at the store
-        int time  = rand.nextInt(720);
+        int time  = rand.nextInt(3);
         startTime = time;
         currentTime = time;
 
@@ -76,6 +76,8 @@ public class Customer implements Comparable<Customer>  {
     public void setTimeInQueue(int timeInQueue){
         this.timeInQueue = timeInQueue;
     }
+
+
 
     @Override
     public int compareTo(Customer c) {
