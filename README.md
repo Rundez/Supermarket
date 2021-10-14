@@ -2,7 +2,7 @@
 <em>Made by Jalla Industries(Martin og Kristan)</em>
 
 
-Prosjektet bruker [JavaFX](https://openjfx.io/) så er viktig å ha det installert hvis ikke man vil få errorer. 
+Prosjektet bruker [JavaFX](https://openjfx.io/). 
 
 Prosjektet simulerer en handletur i et supermarket. Det vil si at man ser turen til kundene igjennom flere "eventer". Disse eventene er blitt kalt 
 
